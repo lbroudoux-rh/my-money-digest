@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Account {{accountId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="with-bg">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Account {{details[0].AccountId}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Product description</h2>
+      <pre><code>{{ getDescription(details[0]) }}</code></pre>
+      <br/>
+      <div align="right">
+        <ion-button color="dark" slot="end" size="small" router-direction="root" href="/accounts">
+          <ion-icon slot="icon-only" name="backspace"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

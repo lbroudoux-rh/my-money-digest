@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Contacts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="with-bg">
+  <ion-card *ngIf="contacts?.length == 0">
+    <ion-card-header>
+      <ion-card-title>My Contacts</ion-card-title>
+      <ion-card-subtitle>Manage your contacts</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Start registering people you may want to tranfer funds to. Tranferring money
+      or doing micro-payments is really easy with <b><em>MyMoney Digest</em></b>.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let contact of contacts">
+    <ion-card-header>
+      <ion-card-title>{{contact.firstname}} {{contact.lastname}}</ion-card-title>
+      <ion-card-subtitle>IBAN: {{contact.iban}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content align="right">
+      <ion-button color="danger" slot="end" fill="outline" (click)="removeContact(contact.id)">Delete</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="warning" router-direction="root" href="/contacts/new">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
